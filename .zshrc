@@ -7,8 +7,6 @@ export TERMINAL="/usr/bin/alacritty"
 alias v="nvim"
 alias ra="ranger"
 
-alias fud="killall Discord"
-
 alias vzsh="nvim $HOME/.zshrc"
 alias vnvim="nvim $HOME/.config/nvim"
 alias vranger="nvim $HOME/.config/ranger/rc.conf"
@@ -17,7 +15,6 @@ alias vsway="nvim $HOME/.config/sway/"
 alias valacritty="nvim $HOME/.config/alacritty/alacritty.toml"
 alias vkitty="nvim $HOME/.config/kitty/kitty.conf"
 alias vwofi="nvim $HOME/.config/wofi"
-alias cat="bat --theme=base16"
 
 ZSH_THEME="eastwood"
 
@@ -40,6 +37,9 @@ alias la='eza -lbhHigUmuSa'
 alias lx='eza -lbhHigUmuSa@'
 alias lt='eza --tree $eza_params'
 alias tree='eza --tree $eza_params'
+
+alias cat="bat --theme=base16"
+alias gitkey="wl-copy < ~/.gitkey"
 
 source $ZSH/oh-my-zsh.sh
 

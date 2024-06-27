@@ -17,6 +17,7 @@ alias vsway="nvim $HOME/.config/sway/"
 alias valacritty="nvim $HOME/.config/alacritty/alacritty.toml"
 alias vkitty="nvim $HOME/.config/kitty/kitty.conf"
 alias vwofi="nvim $HOME/.config/wofi"
+alias cat="bat --theme=base16"
 
 ZSH_THEME="eastwood"
 

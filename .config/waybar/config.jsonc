@@ -1,0 +1,90 @@
+// -*- mode: jsonc -*-
+{
+    "spacing": 0,
+    "position": "left",
+
+    "modules-left": [
+        "custom/power",
+        "custom/seperator",
+        "clock",
+        "custom/seperator",
+        "clock#date"
+    ],
+    "modules-center": [
+        "sway/workspaces"
+    ],
+    "modules-right": [
+        "backlight",
+        "custom/seperator",
+        "pulseaudio",
+        "custom/seperator",
+        "battery",
+        "custom/seperator",
+        "network"
+    ],
+    // Modules configuration
+    "custom/seperator": {
+        "format": "__"
+    },
+    "custom/power": {
+        "format": "<span size='x-large'>⏻</span>"
+    },
+    "sway/workspaces": {
+        "disable-scroll": false,
+        "warp-on-scroll": false,
+        "format": "<span size='large'>{icon}</span>",
+        "format-icons": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10",
+            //"10": "",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        },
+        "persistent_workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
+        }
+    },
+    "clock": {
+        /*8DA3B9*/
+        "format": "<span color='#8da3b9' size='large'></span>\n{:%H\n%M}"
+    },
+    "clock#date": {
+        "format": "<span color='#8da3b9' size='x-large'>󰭦</span>\n{:%m\n%d}"
+    },
+    "backlight": {
+        "format": " <span color='#8da3b9'>{icon}</span>\n{percent}%",
+        "format-icons": [""]
+    },
+    "battery": {
+        "format-full": "{icon} {capacity}%",
+        "format": "<span color='#8da3b9' size='x-large'>{icon}</span>\n {capacity}%",
+        "format-charging": "<span color='#8da3b9' size='x-large'>󱐌</span>\n{capacity}%",
+        "format-plugged": "<span color='#8da3b9' size='x-large'>{icon}</span>\n {capacity}%",
+        "format-icons": [" <span color='#b66467'>󰁺</span>", " 󰁼", " 󰁾", " 󰂀", " 󰂂"]
+    },
+    "network": {
+        "format-wifi": " <span color='#8da3b9' size='x-large'>󰤨 </span>",
+        "format-ethernet": " <span color='#e8e3e3' size='x-large'>󰈁</span>",
+        "format-disconnected": " <span color='#b66467' size='x-large'>󰤮 </span>"
+    },
+    "pulseaudio": {
+        "format": "<span color='#8da3b9' size='large'> {icon}</span>\n {volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+            "default": ["", "", ""]
+        }
+    }
+}

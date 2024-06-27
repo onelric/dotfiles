@@ -1,0 +1,152 @@
+* {
+    font-family: MapleMono NF;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+window#waybar {
+    /*background-color: rgba(0, 0, 0, 0.0);*/
+    background-color: #151515;
+    color: #e8e3e3;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+#custom-power {
+    color: #8DA3B9;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#custom-seperator {
+    color: #333333;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+/*window#waybar.hidden {*/
+    /*opacity: 0.2;*/
+/*}*/
+
+window#waybar.empty {
+    background-color: inherit;
+}
+window#waybar.solo {
+    background-color: inherit;
+}
+
+window#waybar.termite {
+    background-color: inherit;
+}
+
+window#waybar.chromium {
+    background-color: inherit;
+    border: none;
+}
+
+/*button {*/
+/*}*/
+
+button:hover {
+    background: inherit;
+}
+
+#pulseaudio:hover {
+    background-color: inherit;
+}
+
+#workspaces {
+    padding-top: 10px;
+}
+
+#workspaces button {
+    /*padding: 0 10px;*/
+    background-color: #151515;
+    color: #e8e3e3;
+}
+
+#workspaces button:hover {
+    background: #111111;
+}
+
+#workspaces button.focused {
+    background-color: #151515;
+    color: #8DA3B9;
+}
+
+#workspaces button.urgent {
+    background-color: #b66467;
+}
+
+#clock,
+#battery,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber {
+    padding: 12px;
+    color: #E8E3E3;
+    /*border-radius: 15px;*/
+}
+
+#window,
+#workspaces {
+    margin: 0 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#clock {
+    background-color: #151515;
+}
+
+#battery {
+    background-color: #151515;
+    color: #E8E3E3;
+}
+
+#battery.charging, #battery.plugged {
+    color: #e8e3e3;
+    background-color: #151515;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#backlight {
+    background-color: #151515;
+}
+
+#network {
+    padding-bottom: 20px;
+    background-color: #151515;
+    /*background-color: #e8e3e3;*/
+}
+
+#network.disconnected {
+    padding-bottom: 20px;
+    background-color: #151515;
+    /*background-color: #b66467;*/
+}
+
+#pulseaudio {
+    background-color: #151515;
+    /*background-color: #d9bc8c;*/
+    /*color: #000000;*/
+}
+
+#pulseaudio.muted {
+    background-color: #151515;
+    color: #f00;
+    /*background-color: #90b1b1;*/
+}
+

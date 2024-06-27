@@ -1,0 +1,59 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+
+    "logo": {
+        "type": "kitty-direct",
+        "source": "/home/elric/.config/fastfetch/image/image_1.png",
+        "width": 19,
+        "padding": {
+            "right": 2
+        }
+    },
+
+    "display": {
+        "separator": " ~~ ",
+        "color": {
+            "separator": "cyan"
+        }
+    },
+
+    "modules": [
+        {
+            "type": "title",
+            "color": {
+                "user": "blue",
+                "at": "white",
+                "host": "blue"
+            },
+            "format": "   {6}{7}{8}"
+        },
+        "break",
+        {
+            "type": "command",
+            "shell": "/bin/sh",
+            "text": "sh ~/.config/fastfetch/scripts/os.sh",
+            "key": " ",
+            "keyColor": "green"
+        },
+        {
+            "type": "command",
+            "text": "echo sway",
+            "key": "󰖲 ",
+            "keyColor": "blue"
+        },
+        {
+            "type": "command",
+            "text": "sh ~/.config/fastfetch/scripts/pkg.sh",
+            "key": "󰏖 ",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "command",
+            "text": "sh ~/.config/fastfetch/scripts/mem.sh",
+            "key": "󰍛 ",
+            "textColor": "red",
+            "keyColor": "red"
+        }
+    ]
+
+}

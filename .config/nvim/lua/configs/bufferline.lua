@@ -14,7 +14,7 @@ require('bufferline').setup {
             }
         },
         show_buffer_close_icons = true,
-        modified_icon = '󰧟',
+        modified_icon = '',
         close_icon = '',
         buffer_close_icon = '',
         show_close_icon = true,

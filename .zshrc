@@ -1,11 +1,15 @@
 source "$HOME/.cargo/env"
+
 export ZSH="$HOME/.oh-my-zsh"
 export PATH="$HOME/.local/bin:$PATH"
 export EDITOR="nvim"
 export TERMINAL="/usr/bin/alacritty"
+export HIGHLIGHT_STYLE="base16/3024"
 
 alias v="nvim"
 alias ra="ranger"
+alias st="spotify-tui"
+alias f="sh $HOME/.config/kitty/sessions/launch_ranger.sh"
 
 alias vzsh="nvim $HOME/.zshrc"
 alias vnvim="nvim $HOME/.config/nvim"
@@ -13,8 +17,9 @@ alias vranger="nvim $HOME/.config/ranger/rc.conf"
 alias vway="nvim $HOME/.config/waybar/"
 alias vsway="nvim $HOME/.config/sway/"
 alias valacritty="nvim $HOME/.config/alacritty/alacritty.toml"
-alias vkitty="nvim $HOME/.config/kitty/kitty.conf"
-alias vwofi="nvim $HOME/.config/wofi"
+alias vkitty="nvim $HOME/.config/kitty/"
+alias vrofi="nvim $HOME/.config/rofi/config.rasi"
+alias vqute="nvim $HOME/.config/qutebrowser/config.py"
 
 ZSH_THEME="eastwood"
 
@@ -38,10 +43,15 @@ alias lx='eza -lbhHigUmuSa@'
 alias lt='eza --tree $eza_params'
 alias tree='eza --tree $eza_params'
 
+alias catnip="catnip -s ' ~>' -c 'green,red,yellow,cyan' -fcat"
 alias cat="bat --theme=base16"
 alias gitkey="wl-copy < ~/.gitkey"
+alias push="gitkey ; git push"
+alias screenshot='grim -g "$(slurp)" ~/screenshot-$(date +%d.%m.%y-%H:%M:%S).png'
 
-source $ZSH/oh-my-zsh.sh
+
+bindkey -M viins 'kj' vi-cmd-mode
+bindkey -M viins 'jk' vi-cmd-mode
 
 function ranger {
   local quit_cd_wd_file="$HOME/.cache/ranger/quit_cd_wd"
@@ -52,7 +62,7 @@ function ranger {
   fi
 }
 
+source $ZSH/oh-my-zsh.sh
 
 clear
-#catnip -s "~~" -p 4
-fastfetch
+catnip

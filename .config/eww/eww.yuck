@@ -1,0 +1,166 @@
+(defwindow menu
+    :monitor 0
+    :geometry (geometry :x "12px" :y "4px"
+                        :width "350px"
+                        :anchor "top left")
+    :stacking "overlay"
+    (menu_widget)
+)
+
+(defpoll USERNAME :interval "5s" "whoami")
+(defpoll HOST     :interval "5s" "hostname")
+
+(defpoll hour   :interval "1s" "date '+%H'")
+(defpoll min    :interval "1s" "date '+%M'")
+(defpoll sec    :interval "1s" "date '+%S'")
+
+(defpoll day   :interval "15m" "date '+%d'")
+(defpoll month :interval "10h" "date '+%m'")
+(defpoll year  :interval "10h" "date '+%Y'")
+
+(defpoll current-volume     :interval "1s" "amixer -D pipewire sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
+(defpoll current-brightness :interval "1s" "brightnessctl -m -d intel_backlight | awk -F, '{print substr($4, 0, length($4)-1)}'")
+(defpoll current-battery    :interval "1s" "cat /sys/class/power_supply/BAT0/capacity")
+
+(defwidget menu_widget[]
+    (box :orientation "v" 
+        :class "menu-widget"
+        :space-evenly "false"
+
+        (box 
+            :class "top-box"
+            :valign "start"
+
+            ; USER
+            (box :class "profile-box"
+                (literal :class "profile-picture")
+                (box :orientation "v"
+                (label :halign "start" :text "${USERNAME}" :valign "start" :class "user-name")
+                )
+            )
+
+            ; QUICK ACCESS
+            (box
+                :class "top-box-buttons"
+                :valign "start" :halign "end"
+                (button 
+                    :class "settings-button"
+                    :onclick "sh ~/.config/kitty/sessions/launch_ranger.sh"
+                    (label :text "󰥨" :class "settings-button-label"))
+                (button 
+                    :class "logout-button"
+                    :onclick "sh pkill sway"
+                    (label :text "" :class "logout-button-label"))
+                (button 
+                    :class "power-button"
+                    :onclick "sh ~/.config/kitty/sessions/shutdown.sh"
+                    (label :text "⏻" :class "power-button-label"))
+            )
+
+        )
+
+        ; DATE AND TIME
+        (box :orientation "h" :class "date-box"
+            (box :class "time" (label :text "  ${hour} ${min} ${sec}"))
+            (label :text "||" :class "date-seperator")
+            (box :class "date" (label :text "  ${day} ${month} ${year}"))
+        )
+
+        ; VOLUME 
+        (box
+            :class "control-box"
+            :valign "start"
+            :orientation "v"
+            :spacing 12
+
+            (box
+                :class "volume-box"
+                :space-evenly "false"
+                :spacing 20
+                (label :text "" :class "volume-label")
+                (scale 
+                    :class "volume-slider"
+                    :hexpand "true"
+                    :min "0" :max "101"
+                    :onchange "amixer -D pipewire sset Master {}%"
+                    :value current-volume)
+            )
+            (box
+                :class "backlight-box"
+                :space-evenly "false"
+                :spacing 20
+                (label :text "" :class "backlight-label")
+                (scale 
+                    :class "backlight-slider"
+                    :hexpand "true"
+                    :min "20" :max "101"
+                    :onchange "brightnessctl set {}%"
+                    :value current-brightness)
+            )
+        )
+
+        (box
+            :class "battery-box"
+            :space-evenly "false"
+            :spacing 20
+            (label :text "󰂀" :class "battery-label")
+            (scale 
+                :class "battery-slider"
+                :hexpand "true"
+                :min "0" :max "100"
+                :value current-battery)
+        )
+
+        (box :class "bot-div"
+            :orientation "v"
+            :space-evenly "false"
+            ;(label :text "Calendar" :class "calendar")
+            ;(calendar 
+            ;    :class "calendar"  
+            ;    :onclick "sudo reboot"
+            ;    )
+        )
+    )
+)
+
+
+
+
+
+(defwindow power_menu
+    :monitor 0
+    :geometry (geometry :x "4px" :y "4px"
+                        :width "150px"
+                        :anchor "top left")
+    :stacking "overlay"
+    (power_widget)
+)
+
+(defwidget power_widget[]
+    (box :orientation "v" :spacing 10
+        :halign "center" :valign "center"
+        :class "power-widget"
+        (box (label :text "Power menu" :class "power-label"))
+        (box 
+            (button 
+                :class "power-button"
+                :label "shutdown"
+                :onclick "sudo shutdown -h now"
+                (label :text "⏻" :class "shutdown-label"))
+        )
+        (box
+            (button 
+                :class "reboot-button"  
+                :label "reboot" 
+                :onclick "sudo reboot"
+                (label :text "" :class "reboot-label"))
+        )
+        (box
+            (button 
+                :label "logout-button"
+                :class "reboot-button"  
+                :onclick "pkill sway"
+                (label :text "" :class "logout-label"))
+        )
+    )
+)

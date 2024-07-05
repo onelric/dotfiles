@@ -1,3 +1,10 @@
+exec wireplumber
+exec pipewire
+exec eww daemon
+exec spotifyd --no-daemon
+
+output * bg ~/.local/share/wallpapers/2.png fill
+
 set $mod Mod4
 
 set $left h
@@ -9,17 +16,14 @@ set $term kitty
 
 set $increments 65px
 
-#set $menu wofi --show run | xargs swaymsg exec
-set $menu wofi --show=drun | xargs swaymsg exec
-
-exec wireplumber
-exec pipewire
-
-#layer_effects corner_radius 6
-
 set $opacity 0.93
 for_window [class=".*"] opacity $opacity
 for_window [app_id=".*"] opacity $opacity
+for_window [app_id="floating"] floating enable 
+for_window [app_id="floating"] floating enable, resize set 1000 600
+for_window [app_id="password"] floating enable 
+for_window [app_id="password"] floating enable, resize set 200 75
+
 
 blur enable
 blur_radius 5
@@ -40,25 +44,17 @@ bar {
     swaybar_command waybar
 }
 
-#output * bg ~/.local/share/wallpapers/bmo.png fill
-#output * bg ~/.local/share/wallpapers/bmo_mono.png fill
-output * bg ~/.local/share/wallpapers/2.png fill
 
 # Color configuration
 set $clear #ffffff00
 
-# class                  border   background  text     indicator  child_border
-client.focused_inactive  #333333  #5f676a     #ffffff  #484e50    $clear
-client.unfocused         #333333  #222222     #888888  #292d2e    $clear
-
-bindsym $mod+Return exec $term
+bindsym $mod+d exec "rofi -show drun -drun-display-format {name}"
+bindsym $mod+p exec "qutebrowser"
 bindsym $mod+Shift+q kill
-bindsym $mod+d $menu
+bindsym $mod+Return exec $term
 
 floating_modifier $mod normal
-
 bindsym $mod+Shift+c reload
-
 bindsym $mod+Shift+e exec 'exit sway'
 
 bindsym $mod+$left focus left
@@ -98,7 +94,10 @@ bindsym $mod+Shift+0 move container to workspace number 10
 bindsym $mod+b splith
 bindsym $mod+v splitv
 
+#bindsym $mod+s exec screenshot
 bindsym $mod+s exec grim -g "$(slurp)" ~/img.png
+#bindsym $mod+s exec 'grim -g "($slurp)" ~/screenshot-$(date +%d.%m.%y-%H:%M:%S).png'
+#alias screenshot='grim -g "$(slurp)" ~/screenshot-$(date +%d.%m.%y-%H:%M:%S).png'
 
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split

@@ -83,5 +83,4 @@ require('neo-tree').setup {
             hide_hidden = false,
         }
     },
-
 }

@@ -16,6 +16,12 @@ window#waybar {
     color: #8DA3B9;
     margin-top: 20px;
     margin-bottom: 10px;
+    padding-right: 5px;
+    background-image: url("https://github.com/onelric/catnip/blob/main/img/profile.png?raw=true");
+}
+
+#image {
+    padding-top: 10px;
 }
 
 #custom-seperator {

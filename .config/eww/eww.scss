@@ -1,0 +1,202 @@
+/*
+margin-top
+margin-right
+margin-bottom
+margin-left
+ */
+
+$darkbg: #111111;
+$bg: #151515;
+$fg: #e8e3e3;
+$red: #b66467;
+$yellow: #d9bc8c;
+$green: #8c977d;
+$cyan: #8aa6a2;
+$blue: #8da3b9;
+$magenta: #a988b0;
+$border-rad: 10px;
+
+* {
+  all: unset;
+  padding: 0px;
+}
+
+.menu {
+  background: rgba(21,21,21,1);
+  border: none;
+  border-radius: 15px;
+  font-family: Maple Mono;
+  color: $fg;
+}
+
+.menu-widget {
+  //border: 2px solid;
+}
+
+// PROFILE
+.user-name {
+  font-style:italic;
+  font-size: 15px;
+  padding-top: 19px;
+}
+
+.profile-picture {
+  border-radius: 50%;
+  background-size: 125% 125%;
+  background-position: 40% 40%;
+  background-image: url("/home/elric/.config/eww/profile_picture.png");
+
+  margin: 0px 15px 15px 20px;
+
+  /* putting this here instead of .top-box to prevent the image from being cut off */
+}
+
+// QUICK ACCESS BUTTONS
+.power-button,
+.settings-button,
+.logout-button {
+  margin: 0px 10px 20px 0px;
+  background: $darkbg;
+  border: none;
+  border-radius: $border-rad;
+  font-size: 20px;
+  padding: 8px 13px;
+}
+
+.power-button#hover {
+  background: $bg;
+}
+
+.power-button-label {
+  padding: 0px 3px;
+  color: $red;
+}
+
+.settings-button-label {
+  padding-right: 4px;
+  color: $blue;
+}
+
+.logout-button-label {
+  font-size: 15px;
+  color: $green;
+  padding-right: 2px;
+}
+
+.top-box-buttons {
+  padding-top: 6px;
+}
+
+.top-box {
+  padding-top: 20px;
+}
+
+// TIME & DATE
+.date-box {
+  background-color: $darkbg;
+  border-radius: $border-rad;
+  padding: 10px 9px;
+  margin: 5px 10px;
+}
+
+.date, .time {
+  font-style: italic;
+}
+
+.date-seperator {
+  color: #333333;
+}
+
+// SLIDER CONTROL CENTER
+.battery-box {
+  background-color: $darkbg;
+  border-radius: $border-rad;
+  margin: 7px 10px;
+  padding: 13px;
+}
+
+.control-box {
+  background-color: $darkbg;
+  border-radius: $border-rad;
+  margin: 10px 10px 0px 10px;
+  padding: 13px;
+}
+
+.volume-label, .backlight-label, .battery-label {
+  margin-left: 5px;
+  font-size: 14px;
+}
+
+scale trough {
+  all: unset;
+  background-color: $bg;
+  border-radius: $border-rad;
+  min-height: 10px;
+  min-width: 60px;
+}
+
+.volume-slider trough highlight {
+  background-color: $blue;
+  border-radius: 5px;
+}
+
+.backlight-slider trough highlight {
+  background-color: $yellow;
+  border-radius: 5px;
+}
+
+.battery-slider trough highlight {
+  background-color: $green;
+  border-radius: 5px;
+}
+
+
+
+//////////////////
+
+//.power_menu {
+  //background-color: #151515;
+  //border-radius: 15px;
+//}
+
+//.power-label {
+  //color: #e8e3e3;
+  //font-family: Maple Mono;
+  //font-style:italic;
+  //font-weight: bold;
+  //font-size: 15px;
+//}
+
+//.power-widget {
+  //margin: 25px;
+//}
+
+//.power-button,
+//.reboot-button,
+//.logout-button {
+  //border: none;
+  //border-radius: 15px;
+  //background: #e8e3e3;
+//}
+
+//.shutdown-label,
+//.reboot-label,
+//.logout-label {
+  //font-size: 16px;
+  //margin: 5px;
+//}
+
+//.shutdown-label {
+  //color: #b66467;
+//}
+
+//.reboot-label {
+  //color: #a988b0;
+  //font-size: 13px;
+  //padding-right: 1px;
+//}
+
+//.logout-label {
+  //color: #8c977d;
+//}
+

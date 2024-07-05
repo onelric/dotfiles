@@ -4,7 +4,8 @@
     "position": "left",
 
     "modules-left": [
-        "custom/power",
+        //"custom/power",
+        "image#profile",
         "custom/seperator",
         "clock",
         "custom/seperator",
@@ -22,13 +23,18 @@
         "custom/seperator",
         "network"
     ],
-    // Modules configuration
     "custom/seperator": {
         "format": "__"
     },
-    "custom/power": {
-        "format": "<span size='x-large'>⏻</span>"
+    "image#profile": {
+        "path": "/home/elric/.config/waybar/profile_picture.png",
+        "size": 32,
+        "on-click": "sh -c 'eww --force-wayland open menu ; sleep 2 ; eww --force-wayland close menu'"
     },
+    //"custom/power": {
+        //"format": "<span size='x-large'></span>",
+        //"on-click": "sh -c 'eww --force-wayland open power_menu ; sleep 2 ; eww --force-wayland close power_menu'"
+    //},
     "sway/workspaces": {
         "disable-scroll": false,
         "warp-on-scroll": false,
@@ -44,12 +50,11 @@
             "8": "8",
             "9": "9",
             "10": "10",
-            //"10": "",
             "urgent": "",
             "focused": "",
             "default": ""
         },
-        "persistent_workspaces": {
+        "persistent-workspaces": {
             "1": [],
             "2": [],
             "3": [],

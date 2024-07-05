@@ -1,0 +1,106 @@
+* {
+    font: "MapleMono NF 10";
+
+    background: #151515;
+    foreground: #e8e3e3;
+    red:        #b66467;
+    yellow:     #d9bc8c;
+    green:      #8c977d;
+    cyan:       #8aa6a2;
+    blue:       #8da3b9;
+    purple:     #a988b0;
+
+    element-spacing: 20px;
+    element-margin: 1px;
+    element-border-radius: 9px;
+    element-padding: 10px;
+
+    fg-color: @foreground;
+    bg-color: @background;
+    altbg-color: #111111;
+    window-padding: 22px;
+}
+
+configuration {
+    modi: "drun";
+    show-icons: false;
+    display-drun: "";
+}
+
+listview {
+    columns: 1;
+    lines: 6;
+    fixed-height: true;
+    fixed-columns: true;
+    cycle: false;
+    scrollbar: false;
+    border: 0px solid;
+}
+
+window {
+    transparency: "real";
+    width: 385px;
+    background-color: @bg-color;
+    border: 0px solid;
+    border-radius: @element-border-radius;
+    padding: @window-padding;
+}
+
+prompt {
+    text-color: @fg-color;
+}
+
+inputbar {
+    children: ["prompt", "entry"];
+    spacing: 10px;
+    background-color: @altbg-color;
+    padding: 15px;
+    border-radius: @element-border-radius;
+}
+
+entry {
+    placeholder: "            launcher";
+    text-color: @fg-color;
+    placeholder-color: #424242;
+}
+
+mainbox {
+    spacing: @element-spacing;
+    margin: @element-margin;
+    padding: @element-padding;
+    children: ["inputbar", "listview", "message"];
+}
+
+element {
+    spacing: @element-spacing;
+    margin: @element-margin;
+    padding: @element-padding;
+    border-radius: @element-border-radius;
+    background-color: transparent;
+    text-color: @fg-color;
+}
+
+element normal.normal {
+	background-color: transparent;
+	text-color: @fg-color;
+}
+
+element alternate.normal {
+	background-color: @bg-color;
+	text-color: @fg-color;
+}
+
+element selected.active {
+	background-color: @fg-color;
+	text-color: @bg-color;
+}
+
+element selected.normal {
+	background-color: @blue;
+	text-color: @bg-color;
+}
+
+message {
+    background-color: red;
+    border: 0px solid;
+}
